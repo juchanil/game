@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CLUB // LAST ROUND</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">C</span><span>CLUB // LAST ROUND</span></div>
+      <div class="match-meta"><span>TRAINING BUILD 0.1</span><span id="matchStatus">CHARACTER SELECT</span></div>
+    </header>
+
+    <section id="selectScreen" class="select-screen">
+      <div class="intro">
+        <p class="eyebrow">ONE ROOM. FOUR STYLES. ONE BOSS AT THE END.</p>
+        <h1>Enter the<br><em>dead zone.</em></h1>
+        <p class="intro-copy">웨이브를 뚫고, 적의 패턴을 읽고, 보상으로 더 강해지세요.</p>
+      </div>
+      <div class="select-grid">
+        <label class="select-field">PLAYER 1 <select id="p1Select"></select></label>
+        <label class="select-field">DIFFICULTY <select id="difficultySelect"><option value="easy">EASY</option><option value="normal" selected>NORMAL</option><option value="hard">HARD</option><option value="nightmare">NIGHTMARE</option></select></label>
+      </div>
+      <button id="startButton" class="start-button">ENTER THE ROOM <span>→</span></button>
+      <div class="controls-hint">P1 <b>WASD</b> MOVE · <b>F</b> ATTACK · <b>G</b> HEAVY · <b>H</b> GUARD · <b>J</b> DODGE · <b>K</b> SKILL · <b>I</b> BIND · <b>L</b> ULT · <b>E</b> EXECUTE</div>
+      <div class="controls-hint muted">CLEAR A ROOM → GET XP / GOLD → ENTER THE NEXT ROOM → DEFEAT THE BOSS</div>
+    </section>
+
+    <section id="gameScreen" class="game-screen hidden">
+      <div class="hud">
+        <div class="fighter-hud p1-hud">
+          <div class="hud-line"><strong id="p1Name">SAMURAI</strong><span id="p1Wins">○ ○</span></div>
+          <div class="bar hp-bar" style="position:relative"><i id="p1Hp"></i><span id="p1HealthText" style="position:absolute;inset:0;display:grid;place-items:center;color:#f4f1e8;font:9px 'DM Mono',monospace;text-shadow:0 1px 3px #111;pointer-events:none"></span></div>
+          <div class="bar guard-bar"><i id="p1Guard"></i></div>
+          <div class="resource-row"><span>STAMINA <i id="p1Stamina"></i></span><span>MANA <i id="p1Mana"></i></span></div>
+        </div>
+        <div class="round-readout"><span id="roundLabel">ROUND 1</span><strong id="timer">60</strong></div>
+        <div class="fighter-hud p2-hud">
+          <div class="hud-line"><span id="p2Wins">2 ENEMIES</span><strong id="p2Name">ENEMY WAVE</strong></div>
+          <div class="bar hp-bar" style="position:relative"><i id="p2Hp"></i><span id="p2HealthText" style="position:absolute;inset:0;display:grid;place-items:center;color:#f4f1e8;font:9px 'DM Mono',monospace;text-shadow:0 1px 3px #111;pointer-events:none"></span></div>
+          <div class="bar guard-bar"><i id="p2Guard"></i></div>
+          <div class="resource-row right"><span>STAMINA <i id="p2Stamina"></i></span><span>MANA <i id="p2Mana"></i></span></div>
+        </div>
+      </div>
+      <div class="arena-wrap">
+        <canvas id="arena" width="1200" height="650"></canvas>
+        <div id="announce" class="announce"></div>
+        <div class="combo combo-p1"><b id="p1Combo">0</b><span>HIT COMBO</span><small id="p1Damage">0 DAMAGE</small></div>
+        <div class="combo combo-p2"><b id="p2Combo">0</b><span>HIT COMBO</span><small id="p2Damage">0 DAMAGE</small></div>
+        <div class="arena-tip">FIGHT / RESET: <b>R</b></div>
+      </div>
+      <div class="bottom-bar"><span id="p1UltLabel">ULTIMATE 0%</span><div class="ult-track"><i id="p1Ult"></i></div><div class="bottom-center">FIRST TO 2</div><div class="ult-track mirror"><i id="p2Ult"></i></div><span id="p2UltLabel">ULTIMATE 0%</span></div>
+    </section>
+  </main>
+  <script src="pve.js"></script>
+</body>
+</html>
