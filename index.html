@@ -70,6 +70,14 @@
       <div class="arena-wrap">
         <canvas id="arena" width="1200" height="650" tabindex="0" aria-label="게임 전장"></canvas>
         <div id="announce" class="announce"></div>
+        <section id="stageClearOverlay" class="stage-clear-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="stageClearTitle">
+          <div class="stage-clear-content">
+            <p class="eyebrow">FINAL BOSS // DEFEATED</p>
+            <h2 id="stageClearTitle">STAGE CLEAR</h2>
+            <p>모든 전투를 끝냈습니다.</p>
+            <button id="stageClearReturnButton" class="start-button">타이틀 화면으로 <span>→</span></button>
+          </div>
+        </section>
         <div class="combo combo-p1"><b id="p1Combo">0</b><span>HIT COMBO</span><small id="p1Damage">0 DAMAGE</small></div>
         <div class="combo combo-p2"><b id="p2Combo">0</b><span>HIT COMBO</span><small id="p2Damage">0 DAMAGE</small></div>
         <div class="arena-tip">MENU <b>ESC</b> · TITLE <b>R</b></div>
